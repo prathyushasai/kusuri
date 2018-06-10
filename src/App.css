@@ -38,7 +38,7 @@ html, body, #app{
 input[type=file] {
 -webkit-appearance: textfield;
 position: relative;
-margin-left: 35%;
+margin-left: 42%;
 }
 
 input[type=file]::-webkit-file-upload-button {

@@ -19,9 +19,9 @@ export class Home extends React.Component {
   }
   handleSubmit(e) {
     var resp = {
-      tdata: "I'm sad",
+      tdata: "I am sad.",
       sentiment: -1,
-      likelihood: 'Low. Read more info here: https://www.healthline.com/health/depression/risk-factors'
+      likelihood: 'High. Read more info here: https://www.healthline.com/health/depression/risk-factors'
     }
 
     this.state.success = true;
@@ -57,14 +57,13 @@ export class Home extends React.Component {
     if (!this.state.success) {
         return (
           <div className="jumbotron landing">
-            <h2>Worried about your kids mental wellness?</h2>
-            <br/>
-            <h3>Analyze their homework!</h3>
-            <br/>
-            <h4>Using Machine Learning and Natural Language Processing</h4>
-            <br/>
-            <h3>Better understand your children now!</h3>
+            <h2>Worried about your kids' mental wellness?</h2>
             <br/><br/><br/>
+            <h4>Using Machine Learning and Natural Language Processing</h4>
+            <h4>Analyze your kids' sentiment behind their words</h4>
+            <br/>
+            <h3>Better understand your kids now!</h3>
+            <br/><br/>
             <form action="localhost:8080/uploadFile" method="get" encType="multipart/form-data"
               className="text-center" onSubmit={this.handleSubmit}>
               <input type="file" name="uploadedFile" value={this.state.value}

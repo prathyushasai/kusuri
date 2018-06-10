@@ -15,7 +15,7 @@ export class Analysis extends React.Component {
        console.log(error);
      });
 
-    alert('Success! Thank you!');
+    alert('This service is not completely accurate. Please speak with a certified doctor or psychologist before taking further steps.');
 
     // <Redirect to={"//success"}/>
   }
@@ -26,13 +26,13 @@ export class Analysis extends React.Component {
         <div className='row-fluid text-center analysis'>
           <div className='col-sm-6 col-xs-6'>
             <h3>Your Kid's Writing</h3>
-            {this.props.location.state.tdata}
+            <div className='displayWindow'>{this.props.location.state.tdata}</div>
           </div>
           <div className='col-sm-6 col-xs-6'>
             <h4>Your Kid's Sentiment Score</h4>
-              {this.props.location.state.sentiment}
+            <div className='sentiment-score'>{this.props.location.state.sentiment}</div>
             <h4>Likelihood of Depression</h4>
-              {this.props.location.state.likelihood}
+            <div className='likelihood-hood'>{this.props.location.state.likelihood}</div>
           </div>
         </div>
         <div>

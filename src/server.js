@@ -48,12 +48,11 @@ function decideLikelihood(sentiment, absolute, first, length) {
 
 app.get('/uploadFile', function(req, res) {
     console.log('received something');
-    // res.writeHead(200, {'Content-Type': 'text/plain'});
-    // res.end('Hello World!\n');
     res.send('hi');
-    console.log(req.body);
-    console.log(req.body.uploadedFile);
-    fs.readFile(req.body.uploadedFile, 'utf8', function(err, data) {
+    console.log(req.query.uploadedFile);
+    console.log(req.query.uploadedFile.content);
+    var realPath = req.query.uploadedFile.replace("C:\\fakepath\\", "~/");
+    fs.readFile(realPath, 'utf8', function(err, data) {
         if (err) throw err;
         console.log(data);
         const text = data;
