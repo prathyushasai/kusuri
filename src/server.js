@@ -34,13 +34,13 @@ function decideLikelihood(sentiment, absolute, first, length) {
 
   switch(categorize) {
     case 1:
-      return 'lower likelihood';
+      return 'Low. Read more info here: https://www.healthline.com/health/depression/risk-factors';
     case 2:
-      return 'medium likelihood';
+      return 'Medium. Read more info here: https://www.healthline.com/health/depression/risk-factors';
     case 3:
-      return 'higher likelihood';
+      return 'High. Read more info here: https://www.healthline.com/health/depression/risk-factors';
     default:
-      return 'lower likelihood';
+      return 'None. Read more info here: https://www.healthline.com/health/depression/risk-factors';
   }
 };
 

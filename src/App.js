@@ -21,9 +21,16 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/analysis" component={Analysis} />
       <Route path="/permission" component={Permission} />
+      <Route path="/success" component={Success} />
     </div>
   </Router>
 );
+const Success = () => (
+  <div>
+    <h3>Success! Thank you!</h3>
+  </div>
+);
+
 
 const Permission = ({ match }) => (
   <div>

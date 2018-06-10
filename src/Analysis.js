@@ -5,13 +5,6 @@ import axios from 'axios';
 
 export class Analysis extends React.Component {
   handleSubmit(e) {
-    var resp = {
-      tdata: '',
-      sentiment: 0,
-      likelihood: 'Error in Processing Data'
-    }
-
-    this.state.success = true;
     e.preventDefault();
 
     axios.get('http://localhost:8080/getSign')
@@ -22,35 +15,34 @@ export class Analysis extends React.Component {
        console.log(error);
      });
 
+    alert('Success! Thank you!');
 
-     // this.props.history.push({
-     //    pathname: '/analysis',
-     //    state: {
-     //        tdata: resp.tdata,
-     //        sentiment: resp.sentiment,
-     //        likelihood: resp.likelihood
-     //    }
-     // });
+    // <Redirect to={"//success"}/>
   }
   render() {
     console.log(this.props.location.state);
     return (
-        <div className='row-fluid text-center'>
-          <div className='col-sm-8 col-xs-8'>
-            <h3>Your kid's Writing</h3>
+      <div className='container-fluid'>
+        <div className='row-fluid text-center analysis'>
+          <div className='col-sm-6 col-xs-6'>
+            <h3>Your Kid's Writing</h3>
             {this.props.location.state.tdata}
           </div>
-          <div className='col-sm-4 col-xs-4'>
+          <div className='col-sm-6 col-xs-6'>
             <h4>Your Kid's Sentiment Score</h4>
               {this.props.location.state.sentiment}
             <h4>Likelihood of Depression</h4>
               {this.props.location.state.likelihood}
           </div>
-          <form action="localhost:8080/getSign" method="get"
-            className="text-center" onSubmit={this.handleSubmit}>
-                <Button bsStyle="info" type="submit" id="uploadSubmitBtn">Get Help for Your Kid Now!</Button>
-            </form>
         </div>
+        <div>
+          <form action="localhost:8080/getSign" method="get"
+              className="text-center" onSubmit={this.handleSubmit}>
+              <br/><br/><br/>
+                  <Button bsStyle="info" type="submit" id="uploadSubmitBtn">Get Help for Your Kid Now!</Button>
+          </form>
+        </div>
+      </div>
 
     );
   }

@@ -19,9 +19,9 @@ export class Home extends React.Component {
   }
   handleSubmit(e) {
     var resp = {
-      tdata: '',
-      sentiment: 0,
-      likelihood: 'Error in Processing Data'
+      tdata: "I'm sad",
+      sentiment: -1,
+      likelihood: 'Low. Read more info here: https://www.healthline.com/health/depression/risk-factors'
     }
 
     this.state.success = true;
