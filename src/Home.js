@@ -18,20 +18,39 @@ export class Home extends React.Component {
     this.setState({value: e.target.value});
   }
   handleSubmit(e) {
+    var resp = {
+      tdata: '',
+      sentiment: 0,
+      likelihood: 'Error in Processing Data'
+    }
+
+    this.state.success = true;
     e.preventDefault();
 
-    axios.get('http://localhost:8080/uploadFile?uploadedFile=a.txt')
+    axios.get('http://localhost:8080/uploadFile', {
+      params: {
+        uploadedFile: this.state.value
+      }
+    })
      .then(function(response){
        console.log(response);
-       //Perform action based on response
+       resp.tdata = response.tdata;
+        resp.sentiment = response.sentiment;
+        resp.likelihood = response.likelihood;
    })
      .catch(function(error){
        console.log(error);
-       //Perform action based on error
      });
 
-    // this.state.success = true;
-    // this.props.history.push('/analysis');
+
+     this.props.history.push({
+        pathname: '/analysis',
+        state: {
+            tdata: resp.tdata,
+            sentiment: resp.sentiment,
+            likelihood: resp.likelihood
+        }
+     });
   }
 
   render() {

@@ -51,5 +51,10 @@ app.get('/uploadFile', function(req, res) {
     res.send('hi');
   });
 
+app.get('/getSign', function(req, res) {
+    console.log('received something');
+    res.send('Sign success!');
+});
+
 app.listen(8080, () => console.log('Server running on port 8080!'))
 module.exports = app;
