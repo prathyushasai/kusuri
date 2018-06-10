@@ -19,8 +19,8 @@ export class Home extends React.Component {
   }
   handleSubmit(e) {
     var resp = {
-      tdata: "I'm sad",
-      sentiment: -1,
+      tdata: "I am sad",
+      sentiment: -0.4,
       likelihood: 'Low. Read more info here: https://www.healthline.com/health/depression/risk-factors'
     }
 
