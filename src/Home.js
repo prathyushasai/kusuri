@@ -19,9 +19,15 @@ export class Home extends React.Component {
   }
   handleSubmit(e) {
     var resp = {
+<<<<<<< HEAD
       tdata: "I am sad.",
       sentiment: -1,
       likelihood: 'High. Read more info here: https://www.healthline.com/health/depression/risk-factors'
+=======
+      tdata: "I am sad",
+      sentiment: -0.4,
+      likelihood: 'Low. Read more info here: https://www.healthline.com/health/depression/risk-factors'
+>>>>>>> d7a01ac13c9089fa51bb32e789d81b2905be2908
     }
 
     this.state.success = true;
