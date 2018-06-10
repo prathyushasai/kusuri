@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { Container, Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+import { Analysis } from "./Analysis.js";
+import { Home } from "./Home.js";
 
 const App = () => (
   <Router>
@@ -21,33 +23,6 @@ const App = () => (
       <Route path="/permission" component={Permission} />
     </div>
   </Router>
-);
-
-const Home = () => (
-  <div className="jumbotron landing">
-    <h2>Worried about your kids mental wellness?</h2>
-    <br/>
-    <h3>Analyze their homework!</h3>
-    <br/>
-    <h4>Using Machine Learning and Natural Language Processing</h4>
-    <br/>
-    <h3>Better understand your children now!</h3>
-    <br/><br/><br/>
-    <form action="uploadFile" method="post" encType="multipart/form-data" className="text-center">
-      <input type="file" name="uploadedFile" className="inputfile"/>
-      <br/>
-      <Button bsStyle="info" type="submit" id="uploadSubmitBtn">Upload File</Button>
-    </form>
-  </div>
-);
-
-const Analysis = () => (
-  <div className="container-fluid">
-    <Jumbotron>
-      <h1>Worried about your kids' mental wellness?</h1>
-      <h2>Analyze their homework</h2>
-    </Jumbotron>
-  </div>
 );
 
 const Permission = ({ match }) => (

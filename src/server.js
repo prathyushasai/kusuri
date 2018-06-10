@@ -3,7 +3,15 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
+app.get('/', function(req, res) {
+  res.json('you did it');
+});
+
 app.get('/uploadFile', function(req, res) {
+    console.log('received something');
+    // res.writeHead(200, {'Content-Type': 'text/plain'});
+    // res.end('Hello World!\n');
+    res.send('hi');
     console.log(req.body);
     console.log(req.body.uploadedFile);
     fs.readFile(req.body.uploadedFile, 'utf8', function(err, data) {
@@ -40,5 +48,5 @@ app.get('/uploadFile', function(req, res) {
     res.send('hi');
   });
 
-app.listen(8080);
+app.listen(8080, () => console.log('Server running on port 8080!'))
 module.exports = app;
