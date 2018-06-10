@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { Container, Grid, Navbar, Nav, NavItem, Jumbotron, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 export class Home extends React.Component {
   constructor() {
@@ -17,18 +18,22 @@ export class Home extends React.Component {
     this.setState({value: e.target.value});
   }
   handleSubmit(e) {
-    alert('submit' + this.state.value);
-    // fetch('send the data', { with: 'some options' })
-    //   .then(res => res.json())
-    //   .then(jsonRes => {
-    //     const { success } = jsonRes;
-    //     this.setState({ success });
-    //   })
-    //   .catch(err => console.log(err))
+    e.preventDefault();
 
-    this.state.success = true;
-    //this.props.history.push('/analysis');
+    axios.get('http://localhost:8080/uploadFile?uploadedFile=a.txt')
+     .then(function(response){
+       console.log(response);
+       //Perform action based on response
+   })
+     .catch(function(error){
+       console.log(error);
+       //Perform action based on error
+     });
+
+    // this.state.success = true;
+    // this.props.history.push('/analysis');
   }
+
   render() {
     if (!this.state.success) {
         return (
@@ -41,7 +46,7 @@ export class Home extends React.Component {
             <br/>
             <h3>Better understand your children now!</h3>
             <br/><br/><br/>
-            <form action="uploadFile" method="get" encType="multipart/form-data"
+            <form action="localhost:8080/uploadFile" method="get" encType="multipart/form-data"
               className="text-center" onSubmit={this.handleSubmit}>
               <input type="file" name="uploadedFile" value={this.state.value}
                 className="inputfile" onChange={this.handleChange}/>

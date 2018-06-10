@@ -2,6 +2,9 @@ var http = require('http');
 var express = require('express');
 var fs = require('fs');
 var app = express();
+var cors = require('cors');
+
+app.use(cors());
 
 app.get('/', function(req, res) {
   res.json('you did it');
